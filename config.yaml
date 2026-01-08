@@ -1,0 +1,24 @@
+model_list:
+  - model_name: "claude-haiku"
+    litellm_params:
+      model: os.environ/CLAUDE_HAIKU_MODEL
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: os.environ/OPENAI_BASE_URL
+  - model_name: "claude-sonnet"
+    litellm_params:
+      model: os.environ/CLAUDE_SONNET_MODEL
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: os.environ/OPENAI_BASE_URL
+  - model_name: "claude-opus"
+    litellm_params:
+      model: os.environ/CLAUDE_OPUS_MODEL
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: os.environ/OPENAI_BASE_URL
+
+litellm_settings:
+  default_model: "claude-sonnet"
+  drop_params: true
+  callbacks: "claude_middleware.claude_middleware_instance"
+
+router:
+  enable_caching: false
